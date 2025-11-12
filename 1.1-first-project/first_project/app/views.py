@@ -27,7 +27,7 @@ def time_view(request):
     current_time = datetime.datetime.now().time()
     #print(current_time)
     #current_time = None
-    msg = f'Текущее время: {current_time}'
+    msg = f'Сейчас текущее время: {current_time}'
     return HttpResponse(msg)
 
 
@@ -46,3 +46,12 @@ def workdir_view(request):
     return HttpResponse(msg)
 
     #raise NotImplemented
+
+def hello (request):
+    name = request.GET.get('name', 'noname')
+    age = request.GET.get('age','малолетка')
+    return HttpResponse(f'hello 30/04/2025 {name}, {age}')
+
+def sum (request, op1, op2):
+    result = op1 + op2
+    return HttpResponse(f'{result=}')
